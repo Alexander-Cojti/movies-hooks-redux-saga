@@ -1,18 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import Results from './pages/Results';
 import Home from './pages/Home';
 
 const App = ({ store }) => (
 	<Provider store={store}>
-		<Router>
-			<div>
-				<Route exact path="/" component={Home} />
-			</div>
-		</Router>
-	</Provider>
+		<BrowserRouter>
+			<Routes>
+				<Route exact path="/" element={<Home/>}></Route>
+				<Route path="/results" element={<Results/>}></Route>
+
+			</Routes>
+		</BrowserRouter>
+	</Provider >
 );
 
 App.propTypes = {
